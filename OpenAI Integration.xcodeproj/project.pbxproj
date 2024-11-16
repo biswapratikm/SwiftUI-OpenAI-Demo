@@ -20,8 +20,6 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		255972072CAE646700A5029E /* OpenAI Integration */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = "OpenAI Integration";
 			sourceTree = "<group>";
 		};
@@ -71,7 +69,6 @@
 				79AB635F6B20B43395A57C8F /* Pods-OpenAI Integration.debug.xcconfig */,
 				D6A78EF2C53279F9D22214E5 /* Pods-OpenAI Integration.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -310,6 +307,7 @@
 				DEVELOPMENT_TEAM = A668D2FWJN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "OpenAI-Integration-Info.plist";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Your app needs access to the microphone to capture audio.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -341,6 +339,7 @@
 				DEVELOPMENT_TEAM = A668D2FWJN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "OpenAI-Integration-Info.plist";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Your app needs access to the microphone to capture audio.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

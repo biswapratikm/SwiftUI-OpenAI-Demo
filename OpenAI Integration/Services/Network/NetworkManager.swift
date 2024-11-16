@@ -12,9 +12,8 @@ class NetworkManager {
     
     static let shared = NetworkManager() // Singleton instance
     
-    private var apiKey = "" // API key
-    
-    private init() {} // Private initializer
+    // Retrieves the API key from config or defaults to an empty string.
+    private var apiKey = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String ?? ""
     
     // Create request headers
     func createHeaders(contentType: String) -> [String: String] {
@@ -25,7 +24,12 @@ class NetworkManager {
     }
     
     // Send a network request
-    private func sendRequest(to url: URL, method: String = HTTPMethod.post.rawValue, headers: [String: String] = [:], body: Data?, completion: @escaping (Result<Data, Error>) -> Void) {
+    private func sendRequest(
+        to url: URL,
+        method: String = HTTPMethod.post.rawValue,
+        headers: [String: String] = [:], body: Data?,
+        completion: @escaping (Result<Data, Error>) -> Void
+    ) {
         
         var request = URLRequest(url: url)
         request.httpMethod = method
@@ -41,7 +45,8 @@ class NetworkManager {
             }
             
             // Validate response status
-            guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
+            guard let httpResponse = response as? HTTPURLResponse,
+                  200..<300 ~= httpResponse.statusCode else {
                 let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 500
                 completion(.failure(NetworkError.custom(Strings.invalidResponse + statusCode.description)))
                 return
@@ -68,7 +73,11 @@ class NetworkManager {
         completion: @escaping (Result<T, Error>) -> Void
     ) {
         
-        sendRequest(to: url, method: method, headers: headers, body: body) { result in
+        sendRequest(to: url,
+                    method: method,
+                    headers: headers,
+                    body: body
+        ) { result in
             switch result {
             case .success(let data):
                 parse(data, completion)
