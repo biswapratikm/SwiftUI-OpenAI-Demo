@@ -1,0 +1,32 @@
+# macOS system files
+.DS_Store
+
+# Xcode specific files
+xcuserdata/
+*.xccheckout
+*.xcworkspace
+*.xcodeproj/project.xcworkspace
+*.xcodeproj/xcuserdata
+DerivedData/
+.idea/
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/
+
+# Swift Package Manager
+.swiftpm/
+
+# Xcode specific build files
+build/
+
+# User-specific files
+*.swp
+*.swo
+
+# Generated documentation
+docs/
+
