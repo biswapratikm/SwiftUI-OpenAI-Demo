@@ -47,6 +47,7 @@ struct Strings {
     static let playFailed = "Failed to play audio: "
     static let recordingFailed = "Failed to start recording: "
     static let audioSaveFailed = "Error saving audio file: "
+    static let pngRequired = "Image must be PNG and under 4MB."
     
     // MARK: - Demos & Mock Data (for mock data or demo purposes)
     static let demoAudio = "demo_audio"

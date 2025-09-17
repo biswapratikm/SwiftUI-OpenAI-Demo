@@ -13,10 +13,10 @@ final class AppConfig {
     let isDebugMode: Bool
     
     private init() {
-        #if DEBUG
-        self.isDebugMode = true
-        #else
+//        #if DEBUG
+//        self.isDebugMode = true
+//        #else
         self.isDebugMode = false
-        #endif
+//        #endif
     }
 }

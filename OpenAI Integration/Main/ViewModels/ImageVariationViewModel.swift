@@ -31,6 +31,14 @@ class ImageVariationViewModel: ObservableObject {
         self.generatedImage = nil
         isLoading = true
         
+        guard validateImageForVariation(image) else {
+            self.isLoading = false
+            self.errorMessage = Strings.pngRequired
+            self.showErrorAlert = true
+            self.selectedImage = nil
+            return
+        }
+        
         if AppConfig.shared.isDebugMode {
             // Simulate demo image generation in debug mode
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
@@ -52,6 +60,14 @@ class ImageVariationViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    /// Checks if the image is valid for variation (PNG + <4MB).
+    private func validateImageForVariation(_ image: UIImage) -> Bool {
+        guard let data = image.pngData() else {
+            return false
+        }
+        return data.count <= 4 * 1024 * 1024
     }
 }
 
